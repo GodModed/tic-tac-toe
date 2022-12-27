@@ -1,4 +1,5 @@
 import JSConfetti from 'js-confetti'
+const confetti = new JSConfetti();
 
 interface ITile {
     content: "X" | "O" | "";
@@ -56,9 +57,8 @@ document.querySelectorAll(".item").forEach((item, index) => {
                 document.querySelector("#turn")!.textContent = winner + " won!";
                 setTimeout(() => {
                     reset();
+                    confetti.addConfetti();
                 }, 1000);
-                const confetti = new JSConfetti()
-                confetti.addConfetti();
             } else {
                 if (checkDraw()) {
                     document.querySelector("#turn")!.textContent = "Draw!";
