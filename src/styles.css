@@ -1,0 +1,79 @@
+:root {
+    --bg: #27264B;
+    --primary: #2F6B61;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--primary);
+}
+
+.center {
+    /* use transform */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#board {
+    /* tic tac toe board */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 200px;
+    aspect-ratio: 1/1;
+}
+
+#board>.item {
+    /* tic tac toe board items */
+    border: 5px solid var(--primary);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    /* center text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board>.item:hover {
+    background-color: var(--primary);
+    color: var(--bg);
+}
+
+#board>.item:active {
+    /* push down effect */
+    transform: translateY(5px);
+}
+
+#turn {
+    /* turn indicator */
+    /* uppercase */
+    text-transform: uppercase;
+    
+    font-weight: bold;
+    color: var(--primary);
+    /* center text */
+    text-align: center;
+}
+
+/* select */
+::selection {
+    background-color: var(--primary);
+    color: var(--bg);
+    /* cool effects */
+    transition: all 0.3s ease;
+}
+
+.fade-out {
+    /* fade out effect */
+    opacity: 0;
+    transition: all 1s ease;
+}
